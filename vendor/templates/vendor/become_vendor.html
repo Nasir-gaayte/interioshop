@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+{% block content %}
+  <h1>become vendor </h1>
+
+  <form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Sing up</button>
+  </form>
+  <hr>
+  <br><br>
+  <h3>If you have a acconte you can </h3>
+  <a href="{% url 'login' %}">Login</a>
+{% endblock content %}

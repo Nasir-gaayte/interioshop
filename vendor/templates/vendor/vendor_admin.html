@@ -1,0 +1,34 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="box">
+    <h class="title">
+        Vendor Admin-{{vendor.name}}
+    </h>
+    <a href="{% url 'logout' %}"> Log out</a>
+</div>
+<div class="box">
+    <h2> My Product</h2>
+    {% if products %}
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th>Titel</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for product in products %}
+                <tr>
+                    <td>{{product.titel}}</td>
+                    <td>${{product.price}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+      </table>
+    {%else%}
+    <p>You don't have any products yet......</p>
+    {% endif %}
+
+</div>
+  
+{% endblock  %}

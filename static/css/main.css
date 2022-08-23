@@ -1,0 +1,33 @@
+.navbar {
+    text-transform: uppercase;
+}
+
+.navbar.is-dark{
+    background-color: #444;
+}
+
+.footer a{
+    margin-bottom: 15px;
+    display: inline-block;
+    color: #444;
+}
+
+
+.input, .button{
+    border-radius: 0;
+}
+
+
+#log {
+    color: aqua;
+}
+
+.mogo{
+    margin-bottom: 60px;
+    
+}
+
+.footer{
+    margin-bottom: 0%;
+    border-bottom: 0%;
+}

@@ -1,4 +1,24 @@
 {% extends "core/base.html" %}
 {% block content %}
- <h1>frontpage</h1>
+ <div class="col md-6">
+    <div class="col-12 has-text-contered mt-6 mb-6">
+        <h2> New Products</h2>
+    </div>
+    {% for product in newproduct %}
+    <div class="col-3 product-list-item">
+        <div class="box">
+            <figure class="image  md-4">
+                <img src="{{product.get_thumbnail}}" >
+                <h2 class="subtitle">{{product.title}}</h2>
+                <h3 class="price size-6 mb-5">
+                    {{product.price}}
+                    
+                </h3>
+                <hr>
+                <a href="" class="button">View</a>
+            </figure>
+        </div>
+    </div>
+    {% endfor %}
+ </div>
 {% endblock content %}

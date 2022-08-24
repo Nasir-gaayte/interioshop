@@ -1,0 +1,14 @@
+{% extends "core/base.html" %}
+{% block content %}
+ <h1>Product</h1>
+   {% if product.image %}
+      <figure class="image is-4by3 mb-6">
+        <img src="{{ product.image.url }}">
+      </figure>
+    {% endif %}
+
+    <h1 class="title">{{ product.title }}, s{{product.price}}</h1>
+    <p class="mb-6"><span class="tag is-dark">{{}}</span></p>
+
+
+{% endblock content %}

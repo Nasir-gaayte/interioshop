@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 class Vendor(models.Model):
     name = models.CharField(max_length=250)
     created_at = models.DateTimeField(auto_now=True)
-    created_by = models.OneToOneField(User,related_name='ven',on_delete=models.CASCADE)
+    created_by = models.OneToOneField(User, related_name= "vendor",on_delete=models.CASCADE)
     
     class Meta:
         ordering = ['name']

@@ -19,15 +19,31 @@
 
 
 #log {
-    color: aqua;
+    color: rgb(246, 255, 255);
 }
 
 .mogo{
-    margin-bottom: 60px;
+    margin-bottom: 100px;
     
 }
 
 .footer{
     margin-bottom: 0%;
     border-bottom: 0%;
+}
+
+
+.product-list-item .box subtitle{
+    margin-bottom: 0;
+}
+
+
+.product-list-item .box .price{
+    color: #888;
+}
+
+
+.botton{
+    background-color: #444;
+    color: aqua;
 }

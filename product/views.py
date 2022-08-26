@@ -5,14 +5,16 @@ from .models import Category,Product
 
 
 def productview(request, category_slug, product_slug):
-    product = get_object_or_404(Product, category_slug=category_slug, slug=product_slug)
-    similar_products = list(product.category.product.exclude(id=product.id))
-    
-    
-    if len(similar_products)>= 4:
-        similar_products= random.sample(similar_products, 4)
-        
-    return render(request,'product/product.html',{
-                                      'product':product,
-                                      'similar_products':similar_products,
-                                      })    
+    product = get_object_or_404(Product, category__slug=category_slug, slug=product_slug)
+
+    similar_products = list(product.category.products.exclude(id=product.id))
+
+    if len(similar_products) >= 4:
+        similar_products = random.sample(similar_products, 4)
+
+    return render(request, 'product/product.html', {'product': product, 'similar_products': similar_products})
+ 
+ 
+def category(request, category_slug):
+    category = get_object_or_404(Category,category_slug)
+    return render(request,'product/categry.html',{'categry':category}) 

@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+{% block content %}
+ <h1>list</h1>
+ <img class="card-img-top" src="{{product.get_thumbnail}}" >
+ <div class="card-body">
+    <p class="card-title">{{product.title}}</p>
+    <p class="card text">${{product.price}} </p>
+    <a class="btn btn-primary btn-lg" href="{% url 'product:product' product.category.slug product.slug %}" role="button">View</a>
+</div>
+
+{% endblock content %}

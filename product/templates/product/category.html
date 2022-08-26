@@ -2,12 +2,12 @@
 {% block content %}
  <div class="col md-6">
     <div class="col-12 has-text-contered mt-6 mb-6">
-        <h2> New Products</h2>
+        <h2>  {{category.title}}</h2>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
             <div class="card h-100">
-                {% for product in newproduct %}
+                {% for product in category.product.all%}
                 {% include "product/parts/list_item.html" %}
                 {% endfor %}
             </div>

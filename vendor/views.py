@@ -1,8 +1,10 @@
+from venv import create
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.utils.text import slugify
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 
 from .models import Vendor
 from product.models import Product
@@ -28,7 +30,7 @@ def become_vendor(request):
 
 @login_required
 def vendor_admin(request):
-    vendor = request.user.vendor
+    vendor = Vendor.objects.get(created_by=request.user)
     products = vendor.products.all()
 
     return render(request, 'vendor/vendor_admin.html', {'vendor': vendor, 'products': products})
@@ -44,7 +46,7 @@ def add_product(request):
             product.slug = slugify(product.title)
             product.save()
 
-            return redirect('core:frontpage')
+            return redirect('vendor_admin')
     else:
         form = ProductForm()
     

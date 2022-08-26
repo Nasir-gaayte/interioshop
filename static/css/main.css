@@ -32,18 +32,10 @@
     border-bottom: 0%;
 }
 
-
-.product-list-item .box subtitle{
-    margin-bottom: 0;
+.vee{
+    display: flex;
+    flex-direction: column;
+    border: #444 1px;
 }
 
 
-.product-list-item .box .price{
-    color: #888;
-}
-
-
-.botton{
-    background-color: #444;
-    color: aqua;
-}

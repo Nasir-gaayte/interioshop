@@ -8,7 +8,18 @@
     {% endif %}
 
     <h1 class="title">{{ product.title }}, s{{product.price}}</h1>
-    <p class="mb-6"><span class="tag is-dark">{{}}</span></p>
-
+    <p class="mb-6"><span class="tag dark">{{product.vendor.name}}</span></p>
+    <p>{{product.description}}</p>
+    {% if similar_products%}
+    <hr>
+    <div class="columns">
+      <div class="colums-12">
+        <h2>similar products</h2>
+      </div>
+      {% for product in similar_products %}
+        {% include "product/parts/list_item.html" %}
+      {% endfor %}
+    </div>
+     {% endif %}
 
 {% endblock content %}

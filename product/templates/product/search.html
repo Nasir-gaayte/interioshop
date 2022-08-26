@@ -1,0 +1,13 @@
+{% extends "core/base.html" %}
+{% block content %}
+<div class="container">
+    <div class="col">
+        <h> Search</h>
+    <h3>Search term: {{query}} </h>
+    </div>
+    {% for product in products %}
+         {% include "product/parts/list_item.html" %}
+    {% endfor %}
+</div>
+
+{% endblock content %}

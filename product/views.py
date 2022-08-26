@@ -1,8 +1,17 @@
 from django.shortcuts import render,get_object_or_404
 import random
 from .models import Category,Product
+from django.db.models import Q  
 # Create your views here.
-
+def search(request):
+    query = request.GET.get('query','')
+    products = Product.objects.filter(Q(title__icontains=query)| Q(descripion__icontains=query))
+    return render(request,'product/search.html',
+                  {
+                      'query':query,
+                      'products':products
+                  })
+    
 
 def productview(request, category_slug, product_slug):
     product = get_object_or_404(Product, category__slug=category_slug, slug=product_slug)
@@ -16,5 +25,5 @@ def productview(request, category_slug, product_slug):
  
  
 def category(request, category_slug):
-    category = get_object_or_404(Category,category_slug)
-    return render(request,'product/categry.html',{'categry':category}) 
+    category = get_object_or_404(Category,slug=category_slug)
+    return render(request,'product/category.html',{'category':category}) 
